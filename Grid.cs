@@ -141,12 +141,40 @@ namespace TicTacToe
                 yield break;
 
             var occupation = this.Current | this.Opponent;
-            for (int i = 0; i < 9; i++)
-            {
-                var move = (GridCells)(1 << i);
-                if (!this.Check(occupation, move))
-                    yield return move;
-            }
+            if (!this.Check(occupation, GridCells.MC))
+                yield return GridCells.MC;
+
+            if (!this.Check(occupation, GridCells.TL))
+                yield return GridCells.TL;
+
+            if (!this.Check(occupation, GridCells.TR))
+                yield return GridCells.TR;
+
+            if (!this.Check(occupation, GridCells.BL))
+                yield return GridCells.BL;
+
+            if (!this.Check(occupation, GridCells.BR))
+                yield return GridCells.BR;
+
+            if (!this.Check(occupation, GridCells.ML))
+                yield return GridCells.ML;
+
+            if (!this.Check(occupation, GridCells.MR))
+                yield return GridCells.MR;
+
+            if (!this.Check(occupation, GridCells.TC))
+                yield return GridCells.TC;
+
+            if (!this.Check(occupation, GridCells.BC))
+                yield return GridCells.BC;
+
+
+            //for (int i = 0; i < 9; i++)
+            //{
+            //    var move = (GridCells)(1 << i);
+            //    if (!this.Check(occupation, move))
+            //        yield return move;
+            //}
         }
     }
 }
